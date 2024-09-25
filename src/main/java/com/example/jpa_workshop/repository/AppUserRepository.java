@@ -2,18 +2,22 @@ package com.example.jpa_workshop.repository;
 
 import com.example.jpa_workshop.entity.AppUser;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
+@Repository
 public interface AppUserRepository extends CrudRepository<AppUser, Long> {
 
-    AppUser getUserByRegDate(LocalDate regDate);
+    List<AppUser> getUserByRegDate(LocalDate regDate);
 
-    AppUser getUserByUserName(String email);
+    Optional<AppUser> getUserByUserName(String email);
 
-    AppUser getUserByUserDetailsId(Long id);
+    Optional <AppUser> getUserByUserDetailsId(Long id);
 
-    AppUser getAppUserByUserDetailsEmailIgnoreCase(String email);
+    Optional<AppUser> getAppUserByUserDetailsEmailIgnoreCase(String email);
 
 }
